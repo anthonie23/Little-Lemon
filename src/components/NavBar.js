@@ -10,7 +10,7 @@ const NavBar = () => {
     "py-4 px-4 border-b border-gray-500/50 hover:bg-yellow-400";
 
   return (
-    <nav className="flex justify-between items-center max-w-5xl mx-auto text-green-900 py-4 md:py-0">
+    <nav className="flex justify-between items-center max-w-5xl mx-auto text-green-900 py-4 lg:py-0 md:px-6">
       <NavLink to="/" className="">
         <img
           src="/assets/little lemon logo_nav.png"
@@ -18,7 +18,7 @@ const NavBar = () => {
           className="w-[280px] py-3 md:px-0 px-5"
         />
       </NavLink>
-      <ul className="md:flex hidden">
+      <ul className="lg:flex hidden">
         <NavLink to="/" className="px-5 py-10 hover:bg-yellow-400">
           Home
         </NavLink>
@@ -44,7 +44,7 @@ const NavBar = () => {
         </NavLink>
       </ul>
       <div
-        className="md:hidden mr-8 cursor-pointer"
+        className="lg:hidden mr-8 cursor-pointer"
         onClick={() => setShowNav((prev) => !prev)}
       >
         {showNav ? (
@@ -55,7 +55,7 @@ const NavBar = () => {
       </div>
 
       <div
-        className={`fixed md:hidden bg-white w-[70%] border-r pr-4 transition-all ease-in-out duration-500 ${
+        className={`fixed lg:hidden bg-white w-[70%] border-r pr-4 transition-all ease-in-out duration-500 ${
           !showNav ? "inset-0" : "inset-0 left-[-100%]"
         }`}
       >
