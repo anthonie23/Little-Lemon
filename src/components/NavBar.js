@@ -18,28 +18,46 @@ const NavBar = () => {
           className="w-[280px] py-3 md:px-0 px-5"
         />
       </NavLink>
-      <ul className="lg:flex hidden">
-        <NavLink to="/" className="px-5 py-10 hover:bg-yellow-400">
+      <ul className="lg:flex hidden ">
+        <NavLink
+          to="/"
+          className="px-5 py-10 hover:bg-yellow-400 transition-all duration-200"
+        >
           Home
         </NavLink>
 
-        <NavLink to="about" className="px-5 py-10 hover:bg-yellow-400">
+        <NavLink
+          to="about"
+          className="px-5 py-10 hover:bg-yellow-400 transition-all duration-200"
+        >
           About
         </NavLink>
 
-        <NavLink to="menu" className="px-5 py-10 hover:bg-yellow-400">
+        <NavLink
+          to="menu"
+          className="px-5 py-10 hover:bg-yellow-400 transition-all duration-200"
+        >
           Menu
         </NavLink>
 
-        <NavLink to="reservations" className="px-5 py-10 hover:bg-yellow-400">
+        <NavLink
+          to="reservations"
+          className="px-5 py-10 hover:bg-yellow-400 transition-all duration-200"
+        >
           Reservations
         </NavLink>
 
-        <NavLink to="orderOnline" className="px-5 py-10 hover:bg-yellow-400">
+        <NavLink
+          to="orderOnline"
+          className="px-5 py-10 hover:bg-yellow-400 transition-all duration-200"
+        >
           Order Online
         </NavLink>
 
-        <NavLink to="login" className="px-5 py-10 hover:bg-yellow-400">
+        <NavLink
+          to="login"
+          className="px-5 py-10 hover:bg-yellow-400 transition-all duration-200"
+        >
           Login
         </NavLink>
       </ul>

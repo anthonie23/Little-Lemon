@@ -18,7 +18,7 @@ const Card = ({ name, price, image }) => {
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio fuga
           ratione rem minima fugit ipsum voluptas sapiente sunt maiores vel.
         </p>
-        <button className="font-bold flex items-center gap-4 hover:border-b border-b-amber-400 h-8">
+        <button className="font-bold flex items-center gap-4 hover:border-b border-b-amber-400 h-8 transition-all duration-300">
           Order a delivery <MdDeliveryDining size={20} />
         </button>
       </div>
