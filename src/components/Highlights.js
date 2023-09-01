@@ -22,7 +22,7 @@ const specialsArr = [
 
 const Highlights = () => {
   return (
-    <section className=" grid grid-flow-row  auto-rows-auto max-w-5xl mx-auto md:mt-32 gap-8 p-6 mt-4">
+    <section className=" grid grid-flow-row  auto-rows-auto max-w-5xl mx-auto md:mt-32 gap-8 p-6 mt-4 mb-10">
       <div className="flex justify-between 1 items-center">
         <h2 className="text-2xl text-slate-800 font-medium">Specials</h2>
         <Button message="Online Menu" />
