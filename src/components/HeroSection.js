@@ -10,7 +10,7 @@ export const HeroSection = () => {
             Little Lemon
           </h1>
           <h2 className="text-white text-3xl mt-2">Chicago</h2>
-          <p className="mt-4 mb-10 md:mb-16 text-white">
+          <p className="mt-4 mb-10 md:mb-14 text-white">
             We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist.
           </p>
