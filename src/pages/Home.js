@@ -6,7 +6,7 @@ import About from "../components/About";
 
 const Home = () => {
   return (
-    <main className="w-screen">
+    <main className="overflow-hidden">
       <HeroSection />
       <Highlights />
       <Testimonials />

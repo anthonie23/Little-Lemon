@@ -73,7 +73,7 @@ const NavBar = () => {
       </div>
 
       <div
-        className={`fixed lg:hidden bg-white w-[70%] border-r pr-4 transition-all ease-in-out duration-500 z-10 ${
+        className={`fixed lg:hidden bg-white w-[70%] border-r pr-4 transition-all ease-in-out duration-500 z-20 shadow-xl ${
           !showNav ? "inset-0" : "inset-0 left-[-100%]"
         }`}
       >
