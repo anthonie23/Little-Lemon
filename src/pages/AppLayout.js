@@ -6,7 +6,7 @@ import NavBar from "../components/NavBar";
 const AppLayout = () => {
   return (
     <div className="">
-      <header className="">
+      <header>
         <NavBar />
       </header>
       <main>

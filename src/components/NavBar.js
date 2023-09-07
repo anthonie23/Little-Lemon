@@ -10,7 +10,7 @@ const NavBar = () => {
     "py-4 px-4 border-b border-gray-500/50 hover:bg-yellow-400";
 
   return (
-    <nav className="flex justify-between items-center max-w-5xl mx-auto text-green-900 py-4 lg:py-0 md:px-6 fixed lg:relative bg-white w-screen h-24 z-50">
+    <nav className="flex justify-between items-center max-w-5xl mx-auto text-green-900 py-4 lg:py-0 md:px-6 fixed lg:relative bg-white w-screen h-24 z-50 lg:h-auto">
       <NavLink to="/" className="">
         <img
           src="/assets/little lemon logo_nav.png"
@@ -65,7 +65,7 @@ const NavBar = () => {
         className="lg:hidden mr-8 cursor-pointer"
         onClick={() => setShowNav((prev) => !prev)}
       >
-        {showNav ? (
+        {!showNav ? (
           <AiOutlineMenu size={35} className="text-green-900" />
         ) : (
           <AiOutlineClose size={35} className="text-green-900" />
@@ -74,36 +74,60 @@ const NavBar = () => {
 
       <div
         className={`fixed lg:hidden bg-white w-[70%] border-r pr-4 transition-all ease-in-out duration-500 z-20 shadow-xl ${
-          !showNav ? "inset-0" : "inset-0 left-[-100%]"
+          showNav ? "inset-0" : "inset-0 left-[-100%]"
         }`}
       >
         <img
           src="/assets/little lemon logo_nav.png"
           alt="little lemon logo"
-          className="w-[280px] py-3 md:px-0 px-5 mt-4"
+          className="w-[280px] py-3 lg:px-0 px-5 mt-4 "
         />
         <ul className="flex flex-col m-4">
-          <NavLink to="/" className={navlinkStyle}>
+          <NavLink
+            to="/"
+            className={navlinkStyle}
+            onClick={() => setShowNav((prev) => !prev)}
+          >
             Home
           </NavLink>
 
-          <NavLink to="about" className={navlinkStyle}>
+          <NavLink
+            to="about"
+            className={navlinkStyle}
+            onClick={() => setShowNav((prev) => !prev)}
+          >
             About
           </NavLink>
 
-          <NavLink to="menu" className={navlinkStyle}>
+          <NavLink
+            to="menu"
+            className={navlinkStyle}
+            onClick={() => setShowNav((prev) => !prev)}
+          >
             Menu
           </NavLink>
 
-          <NavLink to="reservations" className={navlinkStyle}>
+          <NavLink
+            to="reservations"
+            className={navlinkStyle}
+            onClick={() => setShowNav((prev) => !prev)}
+          >
             Reservations
           </NavLink>
 
-          <NavLink to="orderOnline" className={navlinkStyle}>
+          <NavLink
+            to="orderOnline"
+            className={navlinkStyle}
+            onClick={() => setShowNav((prev) => !prev)}
+          >
             Order Online
           </NavLink>
 
-          <NavLink to="login" className={navlinkStyle}>
+          <NavLink
+            to="login"
+            className={navlinkStyle}
+            onClick={() => setShowNav((prev) => !prev)}
+          >
             Login
           </NavLink>
         </ul>
