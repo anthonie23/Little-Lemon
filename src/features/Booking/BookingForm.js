@@ -1,21 +1,30 @@
 // Email Regex "([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])"
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
-import InputContainer from "../components/InputContainer";
-const ReservationPage = () => {
+
+import Input from "../../components/Input";
+
+const BookingForm = ({ availableTimes, dispatch }) => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isValid, isDirty },
     control,
-  } = useForm();
+    watch,
+  } = useForm({
+    defaultValues: {
+      date: new Date(),
+    },
+  });
 
   const [formData, setFormData] = useState({});
+  const date = watch("date");
 
   const onSubmit = (data) => {
     reset();
@@ -31,16 +40,13 @@ const ReservationPage = () => {
       theme: "light",
     });
   };
-  console.log(formData);
+
+  useEffect(() => {
+    dispatch({ type: "updateTime", payload: date });
+  }, [date, dispatch]);
 
   return (
     <>
-      <ToastContainer />
-      <div className="bg-[#495e57] text-3xl text-white font-semibold">
-        <h1 className="mx-auto max-w-5xl py-9 text-center">
-          Table Reservation
-        </h1>
-      </div>
       <div className="max-w-5xl mx-auto p-6">
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -52,28 +58,21 @@ const ReservationPage = () => {
               <h2 className="text-xl font-semibold  border-b-2 border-green-950 pb-2 my-4 w-fit">
                 Booking Information
               </h2>
-              <InputContainer
-                type="date"
-                label="Date"
-                error={errors?.date?.message}
-              >
+              <Input type="date" label="Date" error={errors?.date?.message}>
                 <input
                   className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
                   type="date"
                   {...register("date", {
                     required: {
+                      valueAsDate: true,
                       value: true,
                       message: "Date is required",
                     },
                   })}
                 />
-              </InputContainer>
+              </Input>
 
-              <InputContainer
-                type="time"
-                label="Time"
-                error={errors?.time?.message}
-              >
+              <Input type="time" label="Time" error={errors?.time?.message}>
                 <select
                   className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
                   {...register("time", {
@@ -83,19 +82,15 @@ const ReservationPage = () => {
                     },
                   })}
                 >
-                  <option value="4:30">4:30 PM</option>
-                  <option value="5:00">5:00 PM</option>
-                  <option value="5:30">5:30 PM</option>
-                  <option value="6:00">6:00 PM</option>
-                  <option value="6:30">6:30 PM</option>
-                  <option value="7:00">7:00 PM</option>
-                  <option value="7:30">7:30 PM</option>
-                  <option value="8:00">8:00 PM</option>
-                  <option value="8:30">8:30 PM</option>
+                  {availableTimes.map((time) => (
+                    <option key={time} value={time}>
+                      {time}
+                    </option>
+                  ))}
                 </select>
-              </InputContainer>
+              </Input>
 
-              <InputContainer
+              <Input
                 type="number"
                 label="Number of Guests"
                 error={errors?.guestNumber?.message}
@@ -112,8 +107,8 @@ const ReservationPage = () => {
                     },
                   })}
                 />
-              </InputContainer>
-              <InputContainer
+              </Input>
+              <Input
                 type="occassion"
                 label="Occassion"
                 error={errors?.occassion?.message}
@@ -132,7 +127,7 @@ const ReservationPage = () => {
                   <option value="casual">Casual</option>
                   <option value="others">Others</option>
                 </select>
-              </InputContainer>
+              </Input>
             </section>
 
             {/* Personal Information */}
@@ -140,7 +135,7 @@ const ReservationPage = () => {
               <h2 className="text-xl font-semibold  border-b-2 border-green-950 pb-2 my-4 w-fit">
                 Personal Information
               </h2>
-              <InputContainer
+              <Input
                 type="firstName"
                 label="First Name"
                 error={errors?.firstName?.message}
@@ -155,8 +150,8 @@ const ReservationPage = () => {
                     },
                   })}
                 />
-              </InputContainer>
-              <InputContainer
+              </Input>
+              <Input
                 type="lastName"
                 label="Last Name"
                 error={errors?.lastName?.message}
@@ -171,12 +166,8 @@ const ReservationPage = () => {
                     },
                   })}
                 />
-              </InputContainer>
-              <InputContainer
-                type="email"
-                label="Email"
-                error={errors?.email?.message}
-              >
+              </Input>
+              <Input type="email" label="Email" error={errors?.email?.message}>
                 <input
                   className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
                   type="email"
@@ -192,8 +183,8 @@ const ReservationPage = () => {
                     },
                   })}
                 />
-              </InputContainer>
-              <InputContainer
+              </Input>
+              <Input
                 type="phoneNumber"
                 label="Phone Number"
                 error={errors?.phoneNumber?.message}
@@ -208,13 +199,13 @@ const ReservationPage = () => {
                     },
                   })}
                 />
-              </InputContainer>
+              </Input>
             </section>
           </div>
           <button
             type="submit"
             className="bg-[#f4ce14] inline-block disabled:bg-zinc-400 disabled:cursor-not-allowed rounded-lg md:w-full lg:w-[83%] w-80 text-center mt-2 py-2 px-4  hover:shadow-lg active:shadow-md md:py-3 md:px-6 md:text-lg font-medium text-green-950 hover:bg-yellow-500 duration-300 "
-            // disabled={!isDirty || !isValid}
+            disabled={!isDirty || !isValid}
           >
             Submit
           </button>
@@ -225,4 +216,4 @@ const ReservationPage = () => {
   );
 };
 
-export default ReservationPage;
+export default BookingForm;
