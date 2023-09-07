@@ -4,7 +4,7 @@ import Button from "./Button";
 export const HeroSection = () => {
   return (
     <section className="bg-[#495e57]">
-      <div className="flex flex-col p-6 max-w-5xl mx-auto gap-8 md:flex-row pt-10 justify-center md:h-96">
+      <div className="flex flex-col p-6 max-w-5xl mx-auto gap-8 md:flex-row pt-10 justify-center md:h-96 mt-20 lg:mt-0">
         <div className="md:w-1/2">
           <h1 className="font-semibold text-[#f4ce14] text-5xl">
             Little Lemon

@@ -10,7 +10,7 @@ const NavBar = () => {
     "py-4 px-4 border-b border-gray-500/50 hover:bg-yellow-400";
 
   return (
-    <nav className="flex justify-between items-center max-w-5xl mx-auto text-green-900 py-4 lg:py-0 md:px-6">
+    <nav className="flex justify-between items-center max-w-5xl mx-auto text-green-900 py-4 lg:py-0 md:px-6 fixed lg:relative bg-white w-screen h-24 z-50">
       <NavLink to="/" className="">
         <img
           src="/assets/little lemon logo_nav.png"
