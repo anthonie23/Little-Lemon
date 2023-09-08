@@ -1,7 +1,6 @@
 // Email Regex "([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])"
 
 import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { toast } from "react-toastify";
 
@@ -9,20 +8,18 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Input from "../../components/Input";
 
-const BookingForm = ({ availableTimes, dispatch }) => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isValid, isDirty },
-    control,
-    watch,
-  } = useForm({
-    defaultValues: {
-      date: new Date(),
-    },
-  });
-
+const BookingForm = ({
+  availableTimes,
+  dispatch,
+  register,
+  handleSubmit,
+  reset,
+  errors,
+  isValid,
+  isDirty,
+  control,
+  watch,
+}) => {
   const [formData, setFormData] = useState({});
   const date = watch("date");
 
@@ -45,10 +42,20 @@ const BookingForm = ({ availableTimes, dispatch }) => {
     dispatch({ type: "updateTime", payload: date });
   }, [date, dispatch]);
 
+  useEffect(() => {
+    dispatch({ type: "submitData", payload: formData });
+  }, [formData, dispatch]);
+
   return (
     <>
+      <div className="bg-[#495e57] text-3xl text-white font-semibold">
+        <h1 className="mx-auto max-w-5xl py-9 text-center">
+          Table Reservation
+        </h1>
+      </div>
       <div className="max-w-5xl mx-auto p-6">
         <form
+          data-testid="booking-form"
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col items-center gap-6"
         >
@@ -58,8 +65,10 @@ const BookingForm = ({ availableTimes, dispatch }) => {
               <h2 className="text-xl font-semibold  border-b-2 border-green-950 pb-2 my-4 w-fit">
                 Booking Information
               </h2>
+
               <Input type="date" label="Date" error={errors?.date?.message}>
                 <input
+                  id="date"
                   className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
                   type="date"
                   {...register("date", {
@@ -75,6 +84,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
               <Input type="time" label="Time" error={errors?.time?.message}>
                 <select
                   className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
+                  id="time"
                   {...register("time", {
                     required: {
                       value: true,
@@ -82,7 +92,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
                     },
                   })}
                 >
-                  {availableTimes.map((time) => (
+                  {availableTimes?.map((time) => (
                     <option key={time} value={time}>
                       {time}
                     </option>
@@ -96,6 +106,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
                 error={errors?.guestNumber?.message}
               >
                 <input
+                  id="number"
                   className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
                   type="number"
                   min="1"
@@ -114,6 +125,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
                 error={errors?.occassion?.message}
               >
                 <select
+                  id="occassion"
                   className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
                   {...register("occassion", {
                     required: {
@@ -141,6 +153,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
                 error={errors?.firstName?.message}
               >
                 <input
+                  id="firstName"
                   className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
                   type="text"
                   {...register("firstName", {
@@ -157,6 +170,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
                 error={errors?.lastName?.message}
               >
                 <input
+                  id="lastName"
                   className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
                   type="text"
                   {...register("lastName", {
@@ -169,6 +183,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
               </Input>
               <Input type="email" label="Email" error={errors?.email?.message}>
                 <input
+                  id="email"
                   className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
                   type="email"
                   {...register("email", {
@@ -190,6 +205,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
                 error={errors?.phoneNumber?.message}
               >
                 <input
+                  id="phoneNumber"
                   className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
                   type="text"
                   {...register("phoneNumber", {
@@ -207,7 +223,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
             className="bg-[#f4ce14] inline-block disabled:bg-zinc-400 disabled:cursor-not-allowed rounded-lg md:w-full lg:w-[83%] w-80 text-center mt-2 py-2 px-4  hover:shadow-lg active:shadow-md md:py-3 md:px-6 md:text-lg font-medium text-green-950 hover:bg-yellow-500 duration-300 "
             disabled={!isDirty || !isValid}
           >
-            Submit
+            Book Now
           </button>
         </form>
         <DevTool control={control} />
