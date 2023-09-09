@@ -35,7 +35,7 @@ const BookingProvider = ({ children }) => {
     }
   };
   const [state, dispatch] = useReducer(updateTimes, initializeTimes);
-  console.log(state);
+
   return (
     <BookingContext.Provider
       value={{

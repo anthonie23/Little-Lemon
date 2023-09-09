@@ -6,7 +6,7 @@ import About from "../components/About";
 
 const Home = () => {
   return (
-    <main className="overflow-hidden">
+    <main>
       <HeroSection />
       <Highlights />
       <Testimonials />

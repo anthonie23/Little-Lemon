@@ -5,15 +5,15 @@ import NavBar from "../components/NavBar";
 
 const AppLayout = () => {
   return (
-    <div className="">
-      <header>
+    <>
+      <header className="h-[105px] flex justify-center">
         <NavBar />
       </header>
       <main>
         <Outlet />
       </main>
       <Footer />
-    </div>
+    </>
   );
 };
 

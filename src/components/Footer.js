@@ -9,6 +9,7 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -24,12 +25,47 @@ const Footer = () => {
         <div className="md:col-span-1">
           <h4 className="uppercase text-lg font-semibold mb-4">SiteMap</h4>
           <ul className="flex flex-col gap-1">
-            <li>Home</li>
-            <li>About</li>
-            <li>Menu</li>
-            <li>Reservations</li>
-            <li>Order Online</li>
-            <li>Login</li>
+            <NavLink
+              to="/"
+              className="hover:text-yellow-400 transition-all duration-200"
+            >
+              Home
+            </NavLink>
+
+            <NavLink
+              to="about"
+              className="hover:text-yellow-400 transition-all duration-200"
+            >
+              About
+            </NavLink>
+
+            <NavLink
+              to="menu"
+              className="hover:text-yellow-400 transition-all duration-200"
+            >
+              Menu
+            </NavLink>
+
+            <NavLink
+              to="booking"
+              className="hover:text-yellow-400 transition-all duration-200"
+            >
+              Reservations
+            </NavLink>
+
+            <NavLink
+              to="orderOnline"
+              className="hover:text-yellow-400 transition-all duration-200"
+            >
+              Order Online
+            </NavLink>
+
+            <NavLink
+              to="login"
+              className="hover:text-yellow-400 transition-all duration-200"
+            >
+              Login
+            </NavLink>
           </ul>
         </div>
         <div className="md:col-span-2">
@@ -62,22 +98,30 @@ const Footer = () => {
             Connect With Us
           </h4>
           <div className="flex gap-5">
-            <FaFacebook
-              size={20}
-              className="hover:text-yellow-500  transition-colors duration-200"
-            />
-            <FaTwitter
-              size={20}
-              className="hover:text-yellow-500  transition-colors duration-200"
-            />
-            <FaInstagram
-              size={20}
-              className="hover:text-yellow-500  transition-colors duration-200"
-            />
-            <FaYoutube
-              size={20}
-              className="hover:text-yellow-500  transition-colors duration-200"
-            />
+            <a href="https://facebook.com">
+              <FaFacebook
+                size={20}
+                className="hover:text-yellow-500  transition-colors duration-200"
+              />
+            </a>
+            <a href="https://twitter.com">
+              <FaTwitter
+                size={20}
+                className="hover:text-yellow-500  transition-colors duration-200"
+              />
+            </a>
+            <a href="https://instagram.com">
+              <FaInstagram
+                size={20}
+                className="hover:text-yellow-500  transition-colors duration-200"
+              />
+            </a>
+            <a href="https://youtube.com">
+              <FaYoutube
+                size={20}
+                className="hover:text-yellow-500  transition-colors duration-200"
+              />
+            </a>
           </div>
         </div>
       </div>
