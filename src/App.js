@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import Booking from "./pages/Booking";
 import ConfirmedBooking from "./features/Booking/ConfirmedBooking";
 import { BookingProvider } from "./context/BookingContext";
+import Menu from "./pages/Menu";
+import Login from "./Login";
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
           <Route element={<AppLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="booking" element={<Booking />} />
+            <Route path="menu" element={<Menu />} />
+            <Route path="login" element={<Login />} />
             <Route path="confirmed" element={<ConfirmedBooking />} />
           </Route>
         </Routes>
