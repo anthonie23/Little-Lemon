@@ -8,6 +8,10 @@ import ConfirmedBooking from "./features/Booking/ConfirmedBooking";
 import { BookingProvider } from "./context/BookingContext";
 import Menu from "./pages/Menu";
 import Login from "./Login";
+import Appetizer from "./components/Menu/Appetizer";
+import MainCourse from "./components/Menu/MainCourse";
+import Dessert from "./components/Menu/Dessert";
+import Drinks from "./components/Menu/Drinks";
 
 const App = () => {
   return (
@@ -17,7 +21,12 @@ const App = () => {
           <Route element={<AppLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="booking" element={<Booking />} />
-            <Route path="menu" element={<Menu />} />
+            <Route path="menu" element={<Menu />}>
+              <Route path="appetizer" element={<Appetizer />} />
+              <Route path="main-course" element={<MainCourse />} />
+              <Route path="dessert" element={<Dessert />} />
+              <Route path="drinks" element={<Drinks />} />
+            </Route>
             <Route path="login" element={<Login />} />
             <Route path="confirmed" element={<ConfirmedBooking />} />
           </Route>

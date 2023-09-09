@@ -54,7 +54,7 @@ const BookingForm = ({ handleSubmit }) => {
               <Input type="date" label="Date" error={errors?.date?.message}>
                 <input
                   id="date"
-                  className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
+                  className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   type="date"
                   {...register("date", {
                     required: {
@@ -68,7 +68,7 @@ const BookingForm = ({ handleSubmit }) => {
 
               <Input type="time" label="Time" error={errors?.time?.message}>
                 <select
-                  className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
+                  className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   id="time"
                   {...register("time", {
                     required: {
@@ -92,7 +92,7 @@ const BookingForm = ({ handleSubmit }) => {
               >
                 <input
                   id="number"
-                  className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
+                  className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   type="number"
                   min="1"
                   max="10"
@@ -111,7 +111,7 @@ const BookingForm = ({ handleSubmit }) => {
               >
                 <select
                   id="occassion"
-                  className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
+                  className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   {...register("occassion", {
                     required: {
                       value: true,
@@ -139,7 +139,7 @@ const BookingForm = ({ handleSubmit }) => {
               >
                 <input
                   id="firstName"
-                  className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
+                  className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   type="text"
                   {...register("firstName", {
                     required: {
@@ -156,7 +156,7 @@ const BookingForm = ({ handleSubmit }) => {
               >
                 <input
                   id="lastName"
-                  className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
+                  className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   type="text"
                   {...register("lastName", {
                     required: {
@@ -169,7 +169,7 @@ const BookingForm = ({ handleSubmit }) => {
               <Input type="email" label="Email" error={errors?.email?.message}>
                 <input
                   id="email"
-                  className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
+                  className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   type="email"
                   {...register("email", {
                     required: {
@@ -191,7 +191,7 @@ const BookingForm = ({ handleSubmit }) => {
               >
                 <input
                   id="phoneNumber"
-                  className="border border-green-800/50 md:w-96 w-80 py-2 px-2 rounded-md"
+                  className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   type="text"
                   {...register("phoneNumber", {
                     required: {
@@ -205,7 +205,7 @@ const BookingForm = ({ handleSubmit }) => {
           </div>
           <button
             type="submit"
-            className="bg-[#f4ce14] inline-block disabled:bg-zinc-400 disabled:cursor-not-allowed rounded-lg md:w-full lg:w-[83%] w-80 text-center mt-2 py-2 px-4  hover:shadow-lg active:shadow-md md:py-3 md:px-6 md:text-lg font-medium text-green-950 hover:bg-yellow-500 duration-300 "
+            className="bg-[#f4ce14] inline-block disabled:bg-zinc-400 disabled:cursor-not-allowed rounded-lg md:w-full lg:w-[78%] w-80 text-center mt-2 py-2 px-4  hover:shadow-lg active:shadow-md md:py-3 md:px-6 md:text-lg font-medium text-green-950 hover:bg-yellow-500 duration-300 "
             disabled={!isDirty || !isValid}
           >
             Book Now
