@@ -1,50 +1,35 @@
-// Email Regex "([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])"
-
 import React, { useEffect, useState } from "react";
 import { DevTool } from "@hookform/devtools";
-import { toast } from "react-toastify";
-
-import "react-toastify/dist/ReactToastify.css";
-
 import Input from "../../components/Input";
+import { useBooking } from "../../context/BookingContext";
+import { useNavigate } from "react-router-dom";
 
-const BookingForm = ({
-  availableTimes,
-  dispatch,
-  register,
-  handleSubmit,
-  reset,
-  errors,
-  isValid,
-  isDirty,
-  control,
-  watch,
-}) => {
+const BookingForm = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({});
+  const navigate = useNavigate();
+  const {
+    register,
+    reset,
+    errors,
+    isValid,
+    isDirty,
+    control,
+    watch,
+    state,
+    dispatch,
+  } = useBooking();
   const date = watch("date");
 
   const onSubmit = (data) => {
     reset();
     setFormData(data);
-    toast.success("Reservation Confirmed!", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    dispatch({ type: "submitData", payload: data });
+    navigate("/confirmed");
   };
 
   useEffect(() => {
     dispatch({ type: "updateTime", payload: date });
   }, [date, dispatch]);
-
-  useEffect(() => {
-    dispatch({ type: "submitData", payload: formData });
-  }, [formData, dispatch]);
 
   return (
     <>
@@ -53,7 +38,7 @@ const BookingForm = ({
           Table Reservation
         </h1>
       </div>
-      <div className="max-w-5xl mx-auto p-6">
+      <section className="max-w-5xl mx-auto p-6">
         <form
           data-testid="booking-form"
           onSubmit={handleSubmit(onSubmit)}
@@ -92,7 +77,7 @@ const BookingForm = ({
                     },
                   })}
                 >
-                  {availableTimes?.map((time) => (
+                  {state?.availableTimes?.map((time) => (
                     <option key={time} value={time}>
                       {time}
                     </option>
@@ -134,10 +119,10 @@ const BookingForm = ({
                     },
                   })}
                 >
-                  <option value="birthday">Birthday</option>
-                  <option value="anniversary">Anniversary</option>
-                  <option value="casual">Casual</option>
-                  <option value="others">Others</option>
+                  <option value="Birthday">Birthday</option>
+                  <option value="Anniversary">Anniversary</option>
+                  <option value="Casual">Casual</option>
+                  <option value="Others">Others</option>
                 </select>
               </Input>
             </section>
@@ -227,7 +212,7 @@ const BookingForm = ({
           </button>
         </form>
         <DevTool control={control} />
-      </div>
+      </section>
     </>
   );
 };

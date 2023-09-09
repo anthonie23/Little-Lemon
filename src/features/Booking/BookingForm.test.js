@@ -1,40 +1,35 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import BookingForm from "./BookingForm";
-
+import { MemoryRouter } from "react-router-dom";
+import { BookingProvider } from "../../context/BookingContext";
 describe("BookingForm test", () => {
-  const dispatch = jest.fn();
   const handleSubmit = jest.fn();
-  const register = jest.fn();
-  const reset = jest.fn();
-  const errors = {};
-  const isValid = true;
-  const isDirty = true;
-  const control = jest.fn();
-  const watch = jest.fn();
-  const availableTimes = ["17:00", "17:30"];
   const props = {
-    availableTimes,
-    dispatch,
-    register,
     handleSubmit,
-    reset,
-    errors,
-    isValid,
-    isDirty,
-    control,
-    watch,
   };
   const today = new Date().toISOString().split("T")[0];
 
   test("Renders the BookingForm Heading", () => {
-    render(<BookingForm {...props} />);
+    render(
+      <BookingProvider>
+        <MemoryRouter>
+          <BookingForm {...props} />
+        </MemoryRouter>
+      </BookingProvider>
+    );
 
     const headingElement = screen.getByText("Table Reservation");
     expect(headingElement).toBeInTheDocument();
   });
 
   test("render all fields correctly", () => {
-    render(<BookingForm {...props} />);
+    render(
+      <BookingProvider>
+        <MemoryRouter>
+          <BookingForm {...props} />
+        </MemoryRouter>
+      </BookingProvider>
+    );
     const dateInput = screen.getByLabelText(/Date/);
     const timeInput = screen.getByLabelText(/Time/);
     const numberOfGuestInput = screen.getByLabelText(/Number of Guests/);
@@ -56,7 +51,13 @@ describe("BookingForm test", () => {
   });
 
   test("Booking form can be submitted when there are fields are not empty", () => {
-    render(<BookingForm {...props} handleSubmit={handleSubmit} />);
+    render(
+      <BookingProvider>
+        <MemoryRouter>
+          <BookingForm {...props} />
+        </MemoryRouter>
+      </BookingProvider>
+    );
 
     const dateInput = screen.getByLabelText(/Date/);
     const timeInput = screen.getByLabelText(/Time/);

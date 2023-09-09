@@ -1,0 +1,67 @@
+import { createContext, useContext, useReducer } from "react";
+import { useForm } from "react-hook-form";
+import { fetchAPI } from "../api/fetchApi";
+
+const BookingContext = createContext();
+
+const BookingProvider = ({ children }) => {
+  /************** useForm ********************/
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isValid, isDirty },
+    control,
+    watch,
+  } = useForm({
+    defaultValues: {
+      date: new Date(),
+    },
+  });
+
+  /************** useReducer ********************/
+  const initializeTimes = { availableTimes: fetchAPI(new Date()), data: {} };
+
+  const updateTimes = (state, action) => {
+    switch (action.type) {
+      case "updateTime": {
+        return { ...state, availableTimes: fetchAPI(new Date(action.payload)) };
+      }
+      case "submitData": {
+        return { ...state, data: action.payload };
+      }
+      default:
+        return;
+    }
+  };
+  const [state, dispatch] = useReducer(updateTimes, initializeTimes);
+  console.log(state);
+  return (
+    <BookingContext.Provider
+      value={{
+        register,
+        handleSubmit,
+        reset,
+        errors,
+        isValid,
+        isDirty,
+        control,
+        watch,
+        state,
+        dispatch,
+      }}
+    >
+      {children}
+    </BookingContext.Provider>
+  );
+};
+
+const useBooking = () => {
+  const context = useContext(BookingContext);
+  //   if (context === undefined) {
+  //     throw new Error("Booking Context was used outside BookingProvider");
+  //   }
+  return context;
+};
+
+export { BookingProvider, useBooking };
