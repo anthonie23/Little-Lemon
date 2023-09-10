@@ -14,7 +14,7 @@ export const HeroSection = () => {
             We are a family owned Mediterranean restaurant, focused on
             traditional recipes served with a modern twist.
           </p>
-          <Button message="Reserve a Table" />
+          <Button message="Reserve a Table" to="booking" />
         </div>
         <div className="md:w-1/2">
           <img

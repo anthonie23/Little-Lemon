@@ -25,7 +25,7 @@ const Highlights = () => {
     <section className=" grid grid-flow-row  auto-rows-auto max-w-5xl mx-auto md:mt-20 lg:mt-32 gap-8 p-6 mt-4 mb-10">
       <div className="flex justify-between 1 items-center">
         <h2 className="text-2xl text-slate-800 font-medium">Specials</h2>
-        <Button message="Online Menu" />
+        <Button message="Online Menu" to="order" />
       </div>
       <ul className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {specialsArr.map((item) => (
