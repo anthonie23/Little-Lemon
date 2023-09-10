@@ -13,10 +13,14 @@ const BookingProvider = ({ children }) => {
     formState: { errors, isValid, isDirty },
     control,
     watch,
+    getValues,
+    onBlur,
+    onChange,
   } = useForm({
     defaultValues: {
       date: new Date(),
     },
+    mode: "all",
   });
 
   /************** useReducer ********************/
@@ -47,8 +51,11 @@ const BookingProvider = ({ children }) => {
         isDirty,
         control,
         watch,
+        getValues,
         state,
         dispatch,
+        onChange,
+        onBlur,
       }}
     >
       {children}

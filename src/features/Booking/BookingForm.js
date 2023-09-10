@@ -17,6 +17,8 @@ const BookingForm = ({ handleSubmit }) => {
     watch,
     state,
     dispatch,
+    onChange,
+    onBlur,
   } = useBooking();
   const date = watch("date");
 
@@ -53,6 +55,9 @@ const BookingForm = ({ handleSubmit }) => {
 
               <Input type="date" label="Date" error={errors?.date?.message}>
                 <input
+                  required
+                  onChange={onChange}
+                  onBlur={onBlur}
                   id="date"
                   className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   type="date"
@@ -62,12 +67,24 @@ const BookingForm = ({ handleSubmit }) => {
                       value: true,
                       message: "Date is required",
                     },
+                    validate: (fieldValue) => {
+                      const dateString = fieldValue;
+                      const selectedDate = new Date(dateString).getTime();
+                      console.log(selectedDate > new Date().getTime());
+                      return (
+                        selectedDate > new Date().getTime() ||
+                        "Date selected is before current date"
+                      );
+                    },
                   })}
                 />
               </Input>
 
               <Input type="time" label="Time" error={errors?.time?.message}>
                 <select
+                  required
+                  onChange={onChange}
+                  onBlur={onBlur}
                   className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   id="time"
                   {...register("time", {
@@ -91,6 +108,9 @@ const BookingForm = ({ handleSubmit }) => {
                 error={errors?.guestNumber?.message}
               >
                 <input
+                  required
+                  onChange={onChange}
+                  onBlur={onBlur}
                   id="number"
                   className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   type="number"
@@ -101,6 +121,7 @@ const BookingForm = ({ handleSubmit }) => {
                       value: true,
                       message: "Number of guests is required",
                     },
+                    max: { value: 10, message: "Maximum of 10 guests only" },
                   })}
                 />
               </Input>
@@ -110,6 +131,9 @@ const BookingForm = ({ handleSubmit }) => {
                 error={errors?.occassion?.message}
               >
                 <select
+                  required
+                  onChange={onChange}
+                  onBlur={onBlur}
                   id="occassion"
                   className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   {...register("occassion", {
@@ -138,6 +162,9 @@ const BookingForm = ({ handleSubmit }) => {
                 error={errors?.firstName?.message}
               >
                 <input
+                  required
+                  onChange={onChange}
+                  onBlur={onBlur}
                   id="firstName"
                   className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   type="text"
@@ -155,6 +182,9 @@ const BookingForm = ({ handleSubmit }) => {
                 error={errors?.lastName?.message}
               >
                 <input
+                  required
+                  onChange={onChange}
+                  onBlur={onBlur}
                   id="lastName"
                   className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   type="text"
@@ -168,6 +198,9 @@ const BookingForm = ({ handleSubmit }) => {
               </Input>
               <Input type="email" label="Email" error={errors?.email?.message}>
                 <input
+                  required
+                  onChange={onChange}
+                  onBlur={onBlur}
                   id="email"
                   className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   type="email"
@@ -178,7 +211,7 @@ const BookingForm = ({ handleSubmit }) => {
                     },
                     pattern: {
                       value:
-                        "([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])",
+                        /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/,
                       message: "Input a valid email address",
                     },
                   })}
@@ -190,6 +223,9 @@ const BookingForm = ({ handleSubmit }) => {
                 error={errors?.phoneNumber?.message}
               >
                 <input
+                  required
+                  onChange={onChange}
+                  onBlur={onBlur}
                   id="phoneNumber"
                   className="border border-green-800/50 md:w-[22rem] w-80 py-2 px-2 rounded-md"
                   type="text"
