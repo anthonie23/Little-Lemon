@@ -2,6 +2,7 @@ import React from "react";
 
 import NavMenu from "../components/Menu/NavMenu";
 import { Outlet } from "react-router-dom";
+import PageUnderConstruction from "./PageUnderConstruction";
 
 const Menu = () => {
   return (
@@ -14,6 +15,7 @@ const Menu = () => {
       <div className="max-w-5xl mx-auto">
         <NavMenu />
         <Outlet />
+        <PageUnderConstruction />
       </div>
     </div>
   );

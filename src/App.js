@@ -7,13 +7,13 @@ import Booking from "./pages/Booking";
 import ConfirmedBooking from "./features/Booking/ConfirmedBooking";
 import { BookingProvider } from "./context/BookingContext";
 import Menu from "./pages/Menu";
-import Login from "./Login";
+import Login from "./pages/Login";
 import Appetizer from "./components/Menu/Appetizer";
 import MainCourse from "./components/Menu/MainCourse";
 import Dessert from "./components/Menu/Dessert";
 import Drinks from "./components/Menu/Drinks";
 import Order from "./pages/Order";
-import AppetizerOrder from "./features/Order/AppetizerOrder";
+import About from "./components/About";
 
 const App = () => {
   return (
@@ -22,6 +22,7 @@ const App = () => {
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<Home />} />
+            <Route path="about" element={<About />} />
             <Route path="booking" element={<Booking />} />
             <Route path="menu" element={<Menu />}>
               <Route path="appetizer" element={<Appetizer />} />
@@ -29,12 +30,7 @@ const App = () => {
               <Route path="dessert" element={<Dessert />} />
               <Route path="drinks" element={<Drinks />} />
             </Route>
-            <Route path="order" element={<Order />}>
-              <Route path="appetizer" element={<AppetizerOrder />} />
-              <Route path="main-course" element={<MainCourse />} />
-              <Route path="dessert" element={<Dessert />} />
-              <Route path="drinks" element={<Drinks />} />
-            </Route>
+            <Route path="order" element={<Order />} />
             <Route path="login" element={<Login />} />
             <Route path="confirmed" element={<ConfirmedBooking />} />
           </Route>
