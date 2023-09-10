@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AppLayout from "./pages/AppLayout";
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import Booking from "./pages/Booking";
 import ConfirmedBooking from "./features/Booking/ConfirmedBooking";
 import { BookingProvider } from "./context/BookingContext";
@@ -14,6 +14,9 @@ import Dessert from "./components/Menu/Dessert";
 import Drinks from "./components/Menu/Drinks";
 import Order from "./pages/Order";
 import About from "./components/About";
+import Loader from "./components/Loader";
+
+const Home = lazy(() => import("./pages/Home"));
 
 const App = () => {
   return (
@@ -21,7 +24,14 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
-            <Route path="/" element={<Home />} />
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Home />
+                </Suspense>
+              }
+            />
             <Route path="about" element={<About />} />
             <Route path="booking" element={<Booking />} />
             <Route path="menu" element={<Menu />}>
