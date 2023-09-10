@@ -12,6 +12,8 @@ import Appetizer from "./components/Menu/Appetizer";
 import MainCourse from "./components/Menu/MainCourse";
 import Dessert from "./components/Menu/Dessert";
 import Drinks from "./components/Menu/Drinks";
+import Order from "./pages/Order";
+import AppetizerOrder from "./features/Order/AppetizerOrder";
 
 const App = () => {
   return (
@@ -23,6 +25,12 @@ const App = () => {
             <Route path="booking" element={<Booking />} />
             <Route path="menu" element={<Menu />}>
               <Route path="appetizer" element={<Appetizer />} />
+              <Route path="main-course" element={<MainCourse />} />
+              <Route path="dessert" element={<Dessert />} />
+              <Route path="drinks" element={<Drinks />} />
+            </Route>
+            <Route path="order" element={<Order />}>
+              <Route path="appetizer" element={<AppetizerOrder />} />
               <Route path="main-course" element={<MainCourse />} />
               <Route path="dessert" element={<Dessert />} />
               <Route path="drinks" element={<Drinks />} />

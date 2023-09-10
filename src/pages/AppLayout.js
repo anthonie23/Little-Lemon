@@ -9,7 +9,7 @@ const AppLayout = () => {
       <header className="h-[105px] flex justify-center">
         <NavBar />
       </header>
-      <main>
+      <main className="overflow-hidden">
         <Outlet />
       </main>
       <Footer />
