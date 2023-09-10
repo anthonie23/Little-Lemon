@@ -8,11 +8,24 @@ const OrderCategories = () => {
     setSearchParams(searchParams);
   };
   const categories = [
-    { value: "appetizer", label: "Appetizer" },
-    { value: "main-course", label: "Main Course" },
-    { value: "desserts", label: "Desserts" },
-    { value: "drinks", label: "Drinks" },
+    {
+      value: "appetizer",
+      label: "Appetizer",
+      image: "assets/appetizer.jpg",
+    },
+    {
+      value: "main-course",
+      label: "Main Course",
+      image: "assets/maincourse.jpg",
+    },
+    {
+      value: "desserts",
+      label: "Desserts",
+      image: "assets/lemoncake.jpg",
+    },
+    { value: "drinks", label: "Drinks", image: "assets/drinks.jpg" },
   ];
+  console.log(categories.at(1).image);
   return (
     <div className="grid md:grid-cols-2 md:grid-rows-2 gap-6 max-w-5xl mx-auto mt-4 h-[90%] w-full">
       {categories.map((category) => (
@@ -20,9 +33,14 @@ const OrderCategories = () => {
           value={category.value}
           key={category.value}
           onClick={() => handleClickCategory(category.value)}
-          className=" bg-yellow-400 rounded-xl shadow-sm hover:shadow-md text-green-900 font-medium text-xl flex items-center justify-center"
+          style={{
+            backgroundImage: `url('${category.image}')`,
+          }}
+          className={`group rounded-xl shadow-sm hover:shadow-lg  bg-yellow-800/20 transition-all duration-150  text-white font-medium text-xl flex items-center justify-center bg-cover bg-center hue-rotate-15 bg-blend-overlay `}
         >
-          {category.label}
+          <p className="text-4xl  px-4 py-1  group-hover:border-b-4 transition-all duration-400">
+            {category.label}
+          </p>
         </button>
       ))}
     </div>

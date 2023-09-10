@@ -1,7 +1,7 @@
 import React from "react";
 
 const DessertOrder = () => {
-  return <div>DessertOrder</div>;
+  return <div></div>;
 };
 
 export default DessertOrder;

@@ -20,7 +20,7 @@ const Order = () => {
   if (selectedCategory === "drinks") display = <DrinksOrder />;
 
   return (
-    <div className="h-[82vh] p-4  overflow-scroll">
+    <div className="h-[82vh] p-4  no-scrollbar overflow-y-auto">
       <div className="max-w-5xl mx-auto mt-4">
         {selectedCategory === null ? (
           <input

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AiOutlinePlus } from "react-icons/ai";
 
 const OrderCard = () => {
   const [quantity, setQuantity] = useState(1);
@@ -42,8 +43,8 @@ const OrderCard = () => {
           alt="bruschetta"
           className="w-full h-40 object-cover rounded-lg"
         />
-        <button className="h-12 w-12 rounded-full bg-yellow-400 absolute -bottom-3 -right-1 text-green-900 text-3xl font-semibold">
-          +
+        <button className="h-12 w-12 rounded-full bg-yellow-400 absolute -bottom-3 -right-1 text-green-900  font-semibold flex items-center justify-center hover:scale-105 hover:bg-yellow-500 transition-all duration-200">
+          <AiOutlinePlus size={25} />
         </button>
       </div>
     </div>
