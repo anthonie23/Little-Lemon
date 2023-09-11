@@ -12,11 +12,13 @@ import Appetizer from "./components/Menu/Appetizer";
 import MainCourse from "./components/Menu/MainCourse";
 import Dessert from "./components/Menu/Dessert";
 import Drinks from "./components/Menu/Drinks";
-import Order from "./pages/Order";
-import About from "./components/About";
 import Loader from "./components/Loader";
+// import Order from "./pages/Order";
+// import About from "./components/About";
 
 const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./components/About"));
+const Order = lazy(() => import("./pages/Order"));
 
 const App = () => {
   return (
@@ -32,7 +34,14 @@ const App = () => {
                 </Suspense>
               }
             />
-            <Route path="about" element={<About />} />
+            <Route
+              path="about"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <About />
+                </Suspense>
+              }
+            />
             <Route path="booking" element={<Booking />} />
             <Route path="menu" element={<Menu />}>
               <Route path="appetizer" element={<Appetizer />} />
@@ -40,7 +49,14 @@ const App = () => {
               <Route path="dessert" element={<Dessert />} />
               <Route path="drinks" element={<Drinks />} />
             </Route>
-            <Route path="order" element={<Order />} />
+            <Route
+              path="order"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Order />
+                </Suspense>
+              }
+            />
             <Route path="login" element={<Login />} />
             <Route path="confirmed" element={<ConfirmedBooking />} />
           </Route>

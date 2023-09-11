@@ -10,7 +10,6 @@ import BackButton from "../components/BackButton";
 const Order = () => {
   const [searchParams] = useSearchParams();
   const selectedCategory = searchParams.get("category");
-  console.log(selectedCategory);
 
   let display;
   if (selectedCategory === null) display = <OrderCategories />;

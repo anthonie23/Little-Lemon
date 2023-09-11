@@ -25,7 +25,7 @@ const OrderCategories = () => {
     },
     { value: "drinks", label: "Drinks", image: "assets/drinks.jpg" },
   ];
-  console.log(categories.at(1).image);
+
   return (
     <div className="grid md:grid-cols-2 md:grid-rows-2 gap-6 max-w-5xl mx-auto mt-4 h-[90%] w-full">
       {categories.map((category) => (
