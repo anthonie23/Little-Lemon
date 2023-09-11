@@ -7,6 +7,8 @@ For testing, Jest and React Testing Library were used.
 
 Little Lemon Website is responsive to different screen sizes.
 
+### Live site URL : https://little-lemon-resto.netlify.app/
+
 ## Landing Page
 ![image](https://github.com/anthonie23/Little-Lemon/assets/127002160/ccba1a4f-8e21-4a6c-825d-9a6b1396ab08)
 
