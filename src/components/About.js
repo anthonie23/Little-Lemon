@@ -4,12 +4,12 @@ const About = () => {
   return (
     <section id="about" className="bg-white mt-10 ">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto p-8 lg:p-0 lg:pb-10">
-        <div>
-          <h2 className="text-4xl font-medium text-[#f4ce14] mb-2">
+        <div className="font-primary">
+          <h2 className="text-5xl font-medium text-[#f4ce14] mb-2">
             About Little Lemon
           </h2>
-          <h3 className="text-2xl font-medium text-[#495e57] mb-7">Chicago</h3>
-          <p className=" text-[#495e57] leading-relaxed">
+          <h3 className="text-3xl font-medium text-[#495e57] mb-7">Chicago</h3>
+          <p className=" text-[#495e57]  font-secondary">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
             ullam? Animi a repellendus nobis unde ut sunt iusto minus id
             accusamus recusandae natus illo, ullam sint iure deserunt dolor,

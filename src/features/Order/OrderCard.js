@@ -13,7 +13,7 @@ const OrderCard = () => {
   return (
     <div className="grid grid-cols-3 w-full mt-2 gap-4 shadow-md p-4 pb-6 rounded-md">
       <div className="col-span-2 w-full ">
-        <h3 className="font-medium  text-lg">Bruschetta</h3>
+        <h3 className="font-medium  text-2xl font-primary">Bruschetta</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
           perferendis a similique corrupti quas veniam accusamus, dolor sit

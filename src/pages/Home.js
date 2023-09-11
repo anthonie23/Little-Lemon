@@ -6,7 +6,7 @@ import About from "../components/About";
 
 const Home = () => {
   return (
-    <main>
+    <main className="font-secondary">
       <HeroSection />
       <Highlights />
       <Testimonials />

@@ -8,11 +8,11 @@ const Menu = () => {
   return (
     <div className="space-y-8 h-[82vh]">
       <div className="bg-[#495e57]">
-        <h2 className="text-3xl font-semibold text-center py-8 text-white">
+        <h2 className="text-4xl tracking-wide font-semibold text-center py-8 text-white font-primary">
           Our Menu
         </h2>
       </div>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto font-secondary">
         <NavMenu />
         <Outlet />
         <PageUnderConstruction />

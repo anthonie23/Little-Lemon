@@ -36,12 +36,12 @@ const BookingForm = ({ handleSubmit }) => {
 
   return (
     <>
-      <div className="bg-[#495e57] text-3xl text-white font-semibold">
-        <h1 className="mx-auto max-w-5xl py-9 text-center">
+      <div className="bg-[#495e57] text-4xl text-white font-semibold font-primary tracking-wide">
+        <h1 className="mx-auto max-w-5xl py-9 text-center ">
           Table Reservation
         </h1>
       </div>
-      <section className="max-w-5xl mx-auto p-6">
+      <section className="max-w-5xl mx-auto p-6 font-secondary">
         <form
           data-testid="booking-form"
           onSubmit={handleSubmit(onSubmit)}

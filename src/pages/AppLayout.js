@@ -6,7 +6,7 @@ import NavBar from "../components/NavBar/NavBar";
 const AppLayout = () => {
   return (
     <>
-      <header className="h-[105px] flex justify-center">
+      <header className="h-[105px] flex justify-center font-secondary text-md">
         <NavBar />
       </header>
       <main className="overflow-hidden">

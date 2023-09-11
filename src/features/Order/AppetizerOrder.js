@@ -4,7 +4,9 @@ import OrderCard from "./OrderCard";
 const AppetizerOrder = () => {
   return (
     <div className="max-w-5xl mx-auto">
-      <h2 className="text-2xl font-medium p-2">Appetizers</h2>
+      <h2 className="text-3xl tracking-wide font-medium p-2 font-primary">
+        Appetizers
+      </h2>
       <OrderCard />
       <OrderCard />
       <OrderCard />

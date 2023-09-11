@@ -28,7 +28,7 @@ const Testimonials = () => {
   return (
     <section className="bg-[#495e57] p-6">
       <div className="max-w-5xl mx-auto md:space-y-10 space-y-8">
-        <h2 className=" text-2xl md:text-3xl text-white">
+        <h2 className=" text-2xl md:text-4xl text-white font-primary tracking-wide">
           What people say about us!
         </h2>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

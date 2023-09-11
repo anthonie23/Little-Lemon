@@ -14,7 +14,7 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     <section className="bg-[#495e57] mt-8">
-      <div className="max-w-5xl mx-auto grid md:grid-cols-6 grid-cols-1 py-8 p-8 lg:p-0 lg:py-8 text-white justify-items-start gap-6">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-6 grid-cols-1 py-8 p-8 lg:p-0 lg:py-8 text-white justify-items-start gap-6 font-secondary">
         <div className="md:col-span-1">
           <img
             src="/assets/logo-white.png"
